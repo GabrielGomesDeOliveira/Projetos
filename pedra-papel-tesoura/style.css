@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Corpo Global do jogo para centralização */
+.corpo {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(90deg , rgb(54, 240, 125), rgb(193, 185, 243));
+}
+
+/* Corpo do Jogo */
+
+/* botões */
+.jogo button {
+    margin: 10px;
+    width: 100px;
+    height: 50px;
+    font-size: 18pt;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+#resetar {
+    width: 350px;
+    height: 40px;
+    font-size: 22pt;
+    background-color: black;
+    color: white;
+}
+
+.jogo button:hover, #resetar:hover {
+    background-color: white;
+    border: solid 1px black;
+    color: black;
+    transition: 0.5s;
+}
+
+
+/* Imagens das mãos */
+.campoImagens {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 700px;
+    height: 300px;
+}
+
+.campoImagens img {
+    width: 300px;
+}
+
+.campoImagens h1 {
+    font-size: 80pt;
+}
+
+.jogador, .robo {
+    text-align: center;
+}
+
+/* valores dos resultados */
+.resultados, h3 {
+    display: flex;
+    margin: 20px;
+    font-size: 30pt;
+}
+

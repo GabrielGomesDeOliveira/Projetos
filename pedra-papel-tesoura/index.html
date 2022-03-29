@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="corpo">
+
+        <div class="campoImagens">
+            <div class="jogador">
+                <h2>Jogador</h2>
+                <img id="imagemJogador" src="" alt="">
+            </div>
+            <h1>X</h1>
+            <div class="robo">
+                <h2>Robo</h2>
+                <img id="imagemBot" src="" alt="">
+            </div>
+        </div>
+
+        <div class="resultados">
+            <h3>Vitorias: <span id="vitoria">0</span></h3>
+            <h3>Derrotas: <span id="derrota">0</span></h3>
+        </div>
+
+        <div class="jogo">
+            <button id="pedra" onclick="pedraFun()">Pedra</button>
+            <button id="papel" onclick="papelFun()">Papel</button>
+            <button id="tesoura" onclick="tesouraFun()">Tesoura</button>
+        </div>
+
+        <div>
+            <button id="resetar" onclick="resetarJogo()">Resetar Jogo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- <script src="js.js"></script> -->
+</body>
+</html>
