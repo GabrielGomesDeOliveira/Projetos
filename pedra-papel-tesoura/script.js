@@ -1,6 +1,12 @@
 const arr = ["pedra", "papel", "tesoura"];
 let vitorias = 0;
 let derrotas = 0;
+let pedra = document.getElementById("imagemJogador");
+let papel = document.getElementById("imagemJogador");
+let tesoura = document.getElementById("imagemJogador");
+let pedra_espelhada = document.getElementById("imagemBot");
+let papel_espelhada = document.getElementById("imagemBot");
+let tesoura_espelhada = document.getElementById("imagemBot");
 
 
 
@@ -22,23 +28,23 @@ function somaDerroas() {
 // A variável Sorteio esta responsavel por armazenar o index sorteado do array
 // Caso a pessoa obtenha vitória, a função somaVitórias é chamada somando um ponto para vitórias
 // Caso a pessoa obtenha derrota, a função somaDerrotas é chamada somando um ponto para derrotas
-// Utilizando o ".src", para inserir a opção da escolha tanto do jogador quando do robo(aleatório)
 function pedraFun() {
+    pedra.style.opacity = 0
     let sorteio = Math.floor(Math.random() * arr.length);
     console.log(sorteio)
-    document.getElementById("imagemJogador").src = `imagens/pedra.png`
+    aparecerImagemPedra()
     
     if (sorteio === 0) {
-        document.getElementById("imagemBot").src = `imagens/pedra_espelhada.png`
-        return console.log("Deu empate!!!");
+        pedra_espelhada.style.opacity = 0
+        aparecerImagemPedraEspelhada()
     } else if (sorteio === 1) {
         somaDerroas();
-        document.getElementById("imagemBot").src = `imagens/papel_espelhada.png`
-        return console.log("Você perdeu!!!");
+        papel_espelhada.style.opacity = 0
+        aparecerImagemPapelEspelhada()
     } else {
         somaVitorias()
-        document.getElementById("imagemBot").src = `imagens/tesoura_espelhada.png`
-        return console.log("Voce Ganhou!!!");
+        tesoura_espelhada.style.opacity = 0
+        aparecerImagemTesouraEspelhada()
     }
 }
 
@@ -46,23 +52,23 @@ function pedraFun() {
 // A variável Sorteio esta responsavel por armazenar o index sorteado do array
 // Caso a pessoa obtenha vitória, a função somaVitórias é chamada somando um ponto para vitórias
 // Caso a pessoa obtenha derrota, a função somaDerrotas é chamada somando um ponto para derrotas
-// Utilizando o ".src", para inserir a opção da escolha tanto do jogador quando do robo(aleatório)
 function papelFun() {
+    papel.style.opacity = 0
     let sorteio = Math.floor(Math.random() * arr.length);
     console.log(sorteio);
-    document.getElementById("imagemJogador").src = `imagens/papel.png`
+    aparecerImagemPapel()
 
     if (sorteio === 0) {
         somaVitorias();
-        document.getElementById("imagemBot").src = `imagens/pedra_espelhada.png`
-        console.log("Você Ganhou!!!")
+        pedra_espelhada.style.opacity = 0
+        aparecerImagemPedraEspelhada()
     } else if (sorteio === 1) {
-        document.getElementById("imagemBot").src = `imagens/papel_espelhada.png`
-        console.log("Você empate!!!");
+        papel_espelhada.style.opacity = 0
+        aparecerImagemPapelEspelhada()
     } else {
         somaDerroas();
-        document.getElementById("imagemBot").src = `imagens/tesoura_espelhada.png`
-        console.log("Você Perdeu!!!");
+        tesoura_espelhada.style.opacity = 0
+        aparecerImagemTesouraEspelhada()
     }
 }
 
@@ -70,24 +76,71 @@ function papelFun() {
 // A variável Sorteio esta responsavel por armazenar o index sorteado do array
 // Caso a pessoa obtenha vitória, a função somaVitórias é chamada somando um ponto para vitórias
 // Caso a pessoa obtenha derrota, a função somaDerrotas é chamada somando um ponto para derrotas
-// Utilizando o ".src", para inserir a opção da escolha tanto do jogador quando do robo(aleatório)
 function tesouraFun() {
+    tesoura.style.opacity = 0
     let sorteio = Math.floor(Math.random() * arr.length);
     console.log(sorteio);
-    document.getElementById("imagemJogador").src = `imagens/tesoura.png`
+    aparecerImagemTesoura()
 
     if (sorteio === 0) {
         somaDerroas();
-        document.getElementById("imagemBot").src = `imagens/pedra_espelhada.png`
-        console.log("Você perdeu");
+        pedra_espelhada.style.opacity = 0
+        aparecerImagemPedraEspelhada()
     } else if (sorteio === 1) {
         somaVitorias();
-        document.getElementById("imagemBot").src = `imagens/papel_espelhada.png`
-        console.log("Você Ganhou!");
+        papel_espelhada.style.opacity = 0
+        aparecerImagemPapelEspelhada()
     } else {
-        document.getElementById("imagemBot").src = `imagens/tesoura_espelhada.png`
-        console.log("Deu Empate!")
+        tesoura_espelhada.style.opacity = 0
+        aparecerImagemTesouraEspelhada()
     }
+}
+
+// As próximas funções tem a funcionalidade de fazer as imagens aparecerem na tela
+// Tanto as imagens do jogador, qunado a do bot
+// Utilizando o ".src", para inserir a opção da escolha tanto do jogador quando do robo(aleatório)
+// Alternando a opacidade de 0 para 1 com o intervalo de 200 Milesegundos
+// Para dar um efeito de piscar na tela a cada jogada
+function aparecerImagemPedra() {
+    setTimeout(function() {
+        pedra.src = `imagens/pedra.png`
+        pedra.style.opacity = 1
+    }, 200)
+}
+
+function aparecerImagemPapel() {
+    setTimeout(function() {
+        papel.src = `imagens/papel.png`
+        papel.style.opacity = 1
+    }, 200)
+}
+
+function aparecerImagemTesoura () {
+    setTimeout(function() {
+        tesoura.src = `imagens/tesoura.png`
+        tesoura.style.opacity = 1
+    }, 200)
+}
+
+function aparecerImagemPedraEspelhada() {
+    setTimeout(function() {
+        pedra_espelhada.src = `imagens/pedra_espelhada.png`
+        pedra_espelhada.style.opacity = 1
+    }, 200)
+}
+
+function aparecerImagemPapelEspelhada() {
+    setTimeout(function() {
+        papel_espelhada.src = `imagens/papel_espelhada.png`
+        papel_espelhada.style.opacity = 1
+    }, 200)
+}
+
+function aparecerImagemTesouraEspelhada () {
+    setTimeout(function() {
+        tesoura_espelhada.src = `imagens/tesoura_espelhada.png`
+        tesoura_espelhada.style.opacity = 1
+    }, 200)
 }
 
 // Função para resetar todos os campos(imagens, contadores)
